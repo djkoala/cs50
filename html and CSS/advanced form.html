@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Advanced Form</title>
+    </head>
+    <body>
+        <form>
+                <input name="name" type="text" placeholder="name">
+                <input name="password" type="password" placeholder="password">
+                <input type="submit">
+            <div></div>
+            Favorite Coin?
+            <div></div>
+            <input name="coin" type="radio" value="BTC"> BTC 
+            <div></div>
+            <input name="coin" type="radio" value="ETH"> ETH
+            <div></div>
+            <input name="coin" type="radio" value="UNI"> UNI
+            <div></div>
+            Which country do you come from?
+            <div></div>
+            <input name="country" list="countries" placeholder="country">
+            <datalist id="countries">
+                <option value ="China">
+                <option value ="US">
+                <option value ="Singapore"></option>
+            </datalist>
+        </form>
+    </body>
+</html>
