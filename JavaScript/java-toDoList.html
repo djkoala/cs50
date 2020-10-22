@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>To Do List</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",afterPageLoad)
+        
+        function afterPageLoad () 
+        {   
+            document.querySelector("#subBtn").disabled = true;
+
+            document.querySelector("#inTxt").onkeyup = function()
+            {
+            if (document.querySelector("#inTxt").value.length>0)  
+                    {document.querySelector("#subBtn").disabled = false;}
+            else    {document.querySelector("#subBtn").disabled = true;}
+            }
+            
+
+
+            document.querySelector("form").onsubmit = function ()
+            {
+            
+
+            const inItem = document.querySelector("#inTxt").value; //取到<form>tag中输入的值          
+            const listItem = document.createElement("li");//创造<ul>tag中的元素，并取值
+            listItem.innerHTML=inItem;//将form tag中元素的值赋予ul tag中元素的值，不同tag中的值需要通过变量来交换
+            console.log(listItem);//在log中展示提取到的值
+            document.querySelector("ul").append(listItem);//在列表中插入<li>tag元素，变量不仅可以代表值，变量还可以代表这个元素
+
+            document.querySelector("#inTxt").value="";//清空form中元素的值
+
+
+            document.querySelector("#subBtn").disabled = true;
+            return false; //不将数据提交到后台,本条应该放在函数最后
+
+
+            }
+
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h2>To Do List</h2>
+    
+    <ul id=list>
+    </ul>
+    
+    <form>
+        <input type=text placeholder="Input to do items here" id=inTxt>
+        <input type=submit id=subBtn>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>React Test</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">//babel will translate this Jsx  into JavaScript
+        //in practice, developer needs to do this beforehand, before uploading the content to servers
+        //this part is to define a React COMPONENT
+        //every component in React is oraganized as a JavaScript CLASS
+
+        class Hello extends React.Component
+        {
+            render()
+            {
+                return (
+                    <div>Hello {this.props.name}! 
+                    </div>//hello component的properties中，name变量的值
+                );
+            }
+        }    
+
+        class App extends React.Component //creating a new class called App, and this App is going be a React component
+        {
+            render() //every React component needs a funciton called RENDER
+            //what render is going to do is: return what HTML to play  
+            {
+                return (
+                <div>
+                    <Hello name="BTC" />
+                    <Hello name="ETH" />
+                    <Hello name="Uni" />
+                </div>               
+                );//here is the JSX part comes in
+                //can return HTML as well
+            }
+        }
+            
+     
+            
+            
+            ReactDOM.render(<App />, document.querySelector("#app"));//put the App component/class into the DOM
+        </script>
+    </body>
+</html>

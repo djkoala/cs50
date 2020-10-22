@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Automatic Counter</title>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded",pageLoaded)
+        
+
+        function pageLoaded()
+        {
+            if (!localStorage.getItem("numCounter"))
+                {localStorage.setItem("numCounter",0);}
+            let numCounter=parseInt(localStorage.getItem("numCounter"));
+            document.querySelector("#counter").innerHTML=numCounter;
+            document.querySelector("#subBtn").disabled= true;
+            
+            document.querySelector("#inInterval").onkeyup = function()
+            {
+                if (document.querySelector("#inInterval").value>0)
+                 {document.querySelector("#subBtn").disabled= false;}
+                else {document.querySelector("#subBtn").disabled= true;}
+            }
+
+
+            document.querySelector("form").onsubmit = function ()
+            {
+                
+                let numInterval = document.querySelector("#inInterval").value;
+                setInterval(count,numInterval);
+                return false;
+            } 
+            
+
+
+            function count()
+                {
+                numCounter = numCounter + 1;
+                document.querySelector("#counter").innerHTML=numCounter;
+                localStorage.setItem("numCounter",numCounter)
+                }
+            
+            document.querySelector("button").onclick = function ()
+            {
+                numCounter=0;
+                document.querySelector("#counter").innerHTML=numCounter;
+            }
+
+        }
+
+        
+    </script>
+</head>    
+
+<body>
+    <h2>Counter:</h2>
+    <h2 id=counter></h2>
+    <form>
+        <input type=text id=inInterval>
+        <input type=submit id=subBtn>
+    </form>
+    <button>Clear Counter</button>
+
+
+</body>
+</html>

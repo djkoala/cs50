@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Token Price Query</title>
+        <script>
+            function showName(){
+                alert(document.getElementById("tokenName").value)
+            }
+            function showPrice(){
+                if (document.getElementById("tokenName").value==="Bitcoin") {alert ("11400")}
+                else {if (document.getElementById("tokenName").value==="Ethereum"){alert("390")}
+                else{(alert("N/A"))}}}
+        </script>
+    </head>
+    <body>
+       <input type=text id=tokenName placeholder="Input either Bitcoin or Ethereum">
+       <button onclick=showPrice()>Show Token Name</button> 
+    </body>
+</html>

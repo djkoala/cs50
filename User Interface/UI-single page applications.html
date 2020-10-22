@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Three Pages in One</title>
+        
+        <style>
+            div {
+                display:none;
+            }
+        </style>
+
+        <script>
+            document.addEventListener("DOMContentLoaded",waitClick)
+
+            function waitClick()
+                {
+                    document.querySelectorAll("button").forEach
+                    (function(button)
+                        {
+                            button.onclick = function ()
+                            {
+                            showPage(button.dataset.page);
+                            }
+                        }
+                    )      
+                }
+            
+            
+            function showPage(page){
+                document.querySelectorAll("div").forEach(function (div)
+                {
+                    div.style.display = "none";
+                })
+                document.querySelector(`#${page}`).style.display = "block";
+            } 
+        </script>
+    </head>
+    <body>
+        <button data-page="pageBtc">Show BTC</button>
+        <button data-page="pageEth">Show ETH</button>
+        <button data-page="pageUni">Show Uni</button>
+
+        <div id="pageBtc">
+            This page is for Bitcoin.
+        </div>
+
+        <div id="pageEth">
+            This page is for Ethereum.
+        </div>
+
+        <div id="pageUni">
+            This page is for Uniswap.
+        </div>
+
+    </body>
+</html>

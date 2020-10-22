@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang=en>
+    <head>
+        <title>Counter Test</title>
+
+        <script>
+            let counter = 0;
+
+            function addOneCount(){
+                counter = counter + 1;
+                document.querySelector("div").innerHTML=counter;
+            }
+        </script>
+    </head>
+
+    <body>
+        The count is now:
+        <div>
+            0
+        </div>
+        <button onclick=addOneCount()>
+            Add One!
+        </button>
+    </body>
+</html>

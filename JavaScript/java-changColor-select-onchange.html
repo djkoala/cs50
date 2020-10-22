@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Change Color Test</title>
+        <script>
+            document.addEventListener("DOMContentLoaded",changeColor)
+            
+            function changeColor()
+            {
+                document.querySelector('select').onchange = function () 
+                {
+                    document.querySelector("#text").style.color =  this.value;
+                }
+            
+                document.querySelector("#myBtn").onclick = function()
+                {
+                document.querySelector("p").innerHTML = "Hello World";
+                }           
+            }
+      
+        </script>
+    </head>
+    <body>
+        <h2 id="text">You can change the color of this line by using the dropdown below.</h2>
+        <select>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="yellow">Yellow</option>
+        </select>
+
+        <button id="myBtn">MyButton</button>
+        <p id="demo"></p>
+    </body>
+
+</html>

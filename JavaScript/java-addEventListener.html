@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            domContentLoaded Test
+        </title>
+        <script>
+            document.addEventListener("DOMContentLoaded",takeText)        //等html走完，再走javaScript
+
+            function takeText(){
+                document.querySelector("form").onsubmit=showMessage       //通过form tag的querySelector.onSubmit调用函数
+            }
+            
+            function showMessage(){
+                let token=document.querySelector("#tokenName").value     //通过querySelector.value给变量赋值
+                alert(`${token} is my favorite coin`)                    //含有变量的文本输出使用`${}`
+            }
+        </script>
+    </head>
+    <body>
+        <h2>This is to test the usage of addEventListener and DomContentLoaded in JavaScript</h2>
+        <form>
+            <input autofocus type=text id=tokenName placeholder="What's your favorite coin?" ><!-- autofocus attribute 自动将光标放到输入框-->
+            <input type=submit id=submitButton>                         
+        </form>
+    </body>
+</html>

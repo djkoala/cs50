@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head><title>Color Changing Test</title>
+    <script>
+       
+        document.addEventListener("DOMContentLoaded",waitForClick); //DOMContentLoaded必须大小写不能改变 
+        //如果要把所有JS code都放在这里，就必须要加这一行；如果直接在html上调用函数，就不用加这一行
+        
+        function waitForClick()
+        {
+            document.querySelectorAll("button").forEach
+            (
+                function(button) 
+                {
+                button.onclick=function(){document.querySelector("h2").style.color = button.dataset.color;}
+                }    
+            )
+        }
+    </script>
+    </head>
+    
+    <body>
+        <h2>This is the text to be changed!</h2>
+        <button data-color="blue">Blue</button>
+        <button data-color="red">Red</button>
+        <button data-color="yellow">Yellow</button>
+    </body>
+</html>

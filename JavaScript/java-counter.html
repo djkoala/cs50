@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Counter Test</title>
+        <script>
+            let counter=0;
+
+            function addOneCount(){
+                counter= counter+1
+                alert(counter);
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type=text placeholder="favorite coin">
+            <input type=submit onclick=addOneCount()>
+        </form>
+        <button onclick=addOneCount()>
+            Count
+        </button>
+        
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Currency API Test</title>
+        <script>
+            document.addEventListener("DOMContentLoaded",pageLoaded)
+            
+            function pageLoaded()
+            {
+                document.querySelector("form").onsubmit = function()
+                {
+                    const curName = document.querySelector("#inName").value.toUpperCase();
+                    
+                    fetch("https://api.exchangeratespi.io/latest?base=USD")
+                    .then (response => response.json())
+                    .then (data => {var rate = data.rates[curName];
+                        if (rate !== undefined) {document.querySelector("#outRate").innerHTML = `${rate.toFixed(3)} ${curName}`;}
+                        else {document.querySelector("#outRate").innerHTML ="Currency is not defined.";}})
+                    .catch(error=>{
+                                    console.log("Error:",error);
+                                  });
+
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2>One USD equals to:</h2>
+        <h2 id=outRate></h2>
+        <form>
+            <input type=text id=inName placeholder="Enter curreny name in 3 block letters">
+            <input type=submit value="Get Rate">
+        </form>
+    </body>
+</html>
